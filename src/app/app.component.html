@@ -1,14 +1,22 @@
 <div>
   <fieldset class="w-5/12 h-96 bg-slate-100">
     <legend class="m-0">Container</legend>
-    <div lass="w-full h-24 bg-slate-600 text-orange-300">
-      <button class="w-full h-24 bg-slate-600 text-orange-300 text-left text-3xl" (click)="toggleContent()">Temporibus
-        autem quibusdam et aut </button>
+    <div class="w-full h-24 bg-slate-600 text-orange-300 flex items-center justify-between">
+      <button class="h-auto text-orange-300 text-3xl block">
+        Temporibus autem quibusdam et aut
+      </button>
+
+      <span class="mr-5"><fa-icon [icon]="faArrowRight" class="mr-2 text-white text-3xl cursor-pointer"
+          (click)="toggleContent()" /></span>
     </div>
-    <div *ngIf="show_content" @fadeIn>
-      <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque
-        corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in
-        culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+    <div [@smoth-col]="!show_content ? 'close' : 'open'">
+      <p>
+        At vero eos et accusamus et iusto odio dignissimos ducimus qui
+        blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
+        et quas molestias excepturi sint occaecati cupiditate non provident,
+        similique sunt in culpa qui officia deserunt mollitia animi, id est
+        laborum et dolorum fuga.
+      </p>
     </div>
   </fieldset>
 </div>

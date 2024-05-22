@@ -1,4 +1,5 @@
-import { animate, style, transition, trigger } from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import {
 
   Component,
@@ -13,7 +14,7 @@ const enterTransition = transition(':enter', [
   }),
   animate('1s ease-in', style({ opacity: 1 })),
 ]);
-const fadeIn = trigger('fadeIn', [enterTransition]);
+/* const fadeIn = trigger('fadeIn', [enterTransition]);
 
 const showMenu = trigger('showMenu', [
   transition(':enter', [
@@ -29,15 +30,30 @@ const showMenu = trigger('showMenu', [
       style({ opacity: 0, transform: 'scale(0.95)' })
     ),
   ]),
+]); */
+
+const toogle = trigger('smoth-col', [
+  state('close', style({
+    height: '0',
+    overflow: 'hidden',
+    opacity: '0',
+    visibility: 'hidden'
+  })),
+  state('open', style({
+    overflow: 'hidden',
+  })),
+  transition('open<=>close', animate('250ms'))
 ]);
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [fadeIn],
+  animations: [toogle],
 })
 export class AppComponent implements OnInit {
+  faArrowRight = faArrowRight;
+
   show_content = false;
 
   ngOnInit(): void { }
