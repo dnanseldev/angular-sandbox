@@ -6,10 +6,10 @@
         Temporibus autem quibusdam et aut
       </button>
 
-      <span class="mr-5"><fa-icon [icon]="faArrowRight" class="mr-2 text-white text-3xl cursor-pointer"
-          (click)="toggleContent()" /></span>
+      <span [@rotate]="!show_content ? 'plane' : 'rotated'" class="mr-5"><fa-icon [icon]="faArrowRight"
+          class="mr-2 text-white text-3xl cursor-pointer" (click)="toggleContent()" /></span>
     </div>
-    <div [@smoth-col]="!show_content ? 'close' : 'open'">
+    <div [@toogle]="!show_content ? 'close' : 'open'">
       <p>
         At vero eos et accusamus et iusto odio dignissimos ducimus qui
         blanditiis praesentium voluptatum deleniti atque corrupti quos dolores

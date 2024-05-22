@@ -32,7 +32,7 @@ const showMenu = trigger('showMenu', [
   ]),
 ]); */
 
-const toogle = trigger('smoth-col', [
+const toogle = trigger('toogle', [
   state('close', style({
     height: '0',
     overflow: 'hidden',
@@ -45,11 +45,21 @@ const toogle = trigger('smoth-col', [
   transition('open<=>close', animate('250ms'))
 ]);
 
+const rotate = trigger('rotate', [
+  state('plane', style({
+    transform: 'rotate(0)'
+  })),
+  state('rotated', style({
+    transform: 'rotate(90deg)'
+  })),
+  transition('plane<=>rotated', animate('250ms'))
+]);
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [toogle],
+  animations: [toogle, rotate],
 })
 export class AppComponent implements OnInit {
   faArrowRight = faArrowRight;
