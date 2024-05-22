@@ -1,34 +1,14 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <p>Add new Servers or blueprints!</p>
-      <label>Server Name</label>
-      <input type="text" class="form-control" [(ngModel)]="newServerName">
-      <label>Server Content</label>
-      <input type="text" class="form-control" [(ngModel)]="newServerContent">
-      <br>
-      <button
-        class="btn btn-primary"
-        (click)="onAddServer()">Add Server</button>
-      <button
-        class="btn btn-primary"
-        (click)="onAddBlueprint()">Add Server Blueprint</button>
+<div>
+  <fieldset class="w-5/12 h-96 bg-slate-100">
+    <legend class="m-0">Container</legend>
+    <div lass="w-full h-24 bg-slate-600 text-orange-300">
+      <button class="w-full h-24 bg-slate-600 text-orange-300 text-left text-3xl" (click)="toggleContent()">Temporibus
+        autem quibusdam et aut </button>
     </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-xs-12">
-      <div
-        class="panel panel-default"
-        *ngFor="let element of serverElements">
-        <div class="panel-heading">{{ element.name }}</div>
-        <div class="panel-body">
-          <p>
-            <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
-            <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
-          </p>
-        </div>
-      </div>
+    <div *ngIf="show_content" @fadeIn>
+      <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque
+        corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in
+        culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
     </div>
-  </div>
+  </fieldset>
 </div>
